@@ -3,7 +3,7 @@ FROM alpine:3.12
 MAINTAINER scjtqs <jose@scjtqs.cn>
 
 
-RUN  apk add --no-cache ca-certificates  git openjdk8 wget unzip which bash
+RUN  apk add --no-cache ca-certificates  git openjdk11 wget unzip which bash
 
 ENV JAVA_HOME=/usr/java/default/ \
     ZK_HOSTS=localhost:2181 \

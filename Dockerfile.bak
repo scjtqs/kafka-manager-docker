@@ -1,9 +1,10 @@
-FROM alpine:3.12
+FROM centos:7
 
 MAINTAINER scjtqs <jose@scjtqs.cn>
 
-
-RUN  apk add --no-cache ca-certificates  git openjdk8 wget unzip which
+RUN yum update -y && \
+    yum install -y java-1.8.0-openjdk-headless && \
+    yum clean all
 
 ENV JAVA_HOME=/usr/java/default/ \
     ZK_HOSTS=localhost:2181 \
@@ -13,8 +14,8 @@ ENV JAVA_HOME=/usr/java/default/ \
 
 ADD start-kafka-manager.sh /kafka-manager-${KM_VERSION}/start-kafka-manager.sh
 
-
-RUN mkdir -p /tmp && \
+RUN yum install -y java-1.8.0-openjdk-devel git wget unzip which && \
+    mkdir -p /tmp && \
     cd /tmp && \
     git clone https://github.com/yahoo/kafka-manager && \
     cd /tmp/kafka-manager && \
@@ -23,8 +24,9 @@ RUN mkdir -p /tmp && \
     ./sbt clean dist && \
     unzip  -d / ./target/universal/kafka-manager-${KM_VERSION}.zip && \
     rm -fr /tmp/* /root/.sbt /root/.ivy2 && \
-    chmod +x /kafka-manager-${KM_VERSION}/start-kafka-manager.sh &&
-#    yum autoremove -y java-1.8.0-openjdk-devel git wget unzip which && \
+    chmod +x /kafka-manager-${KM_VERSION}/start-kafka-manager.sh && \
+    yum autoremove -y java-1.8.0-openjdk-devel git wget unzip which && \
+    yum clean all
 
 WORKDIR /kafka-manager-${KM_VERSION}
 

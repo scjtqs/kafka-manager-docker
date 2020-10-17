@@ -31,6 +31,7 @@ on:
 env:
   # TODO: Change variable to your image's name.
   IMAGE_NAME: scjtqs/kafka-manager:test
+#  IMAGE_NAME: ${{ github.repository }}:test
 
 jobs:
   # Run tests.

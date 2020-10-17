@@ -21,7 +21,8 @@ RUN mkdir -p /tmp && \
 #    git checkout ${KM_REVISION} && \
 #    echo 'scalacOptions ++= Seq("-Xmax-classfile-name", "200")' >> build.sbt && \
     ./sbt clean dist && \
-    unzip  -d / ./target/universal/kafka-manager-${KM_VERSION}.zip && \
+    unzip  -d / ./target/universal/cmak-*.zip && \
+    mv /cmak-* /kafka-manager-${KM_VERSION}
     rm -fr /tmp/* /root/.sbt /root/.ivy2 && \
     chmod +x /kafka-manager-${KM_VERSION}/start-kafka-manager.sh
 #    yum autoremove -y java-1.8.0-openjdk-devel git wget unzip which && \

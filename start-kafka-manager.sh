@@ -8,4 +8,5 @@ if [[ $KM_USERNAME != ''  && $KM_PASSWORD != '' ]]; then
     echo 'basicAuthentication.realm="Kafka-Manager"' >> /kafka-manager-${KM_VERSION}/conf/application.conf
 fi
 
-exec ./bin/cmak -Dconfig.file=${KM_CONFIGFILE} "${KM_ARGS}" "${@}"
+#exec ./bin/cmak -Dconfig.file=${KM_CONFIGFILE} "${KM_ARGS}" "${@}"
+exec ./bin/cmak -Dconfig.file=${KM_CONFIGFILE} "${KM_ARGS}"  -Dhttp.port=9000

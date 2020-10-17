@@ -5,10 +5,10 @@ MAINTAINER scjtqs <jose@scjtqs.cn>
 
 RUN  apk add --no-cache ca-certificates  git openjdk11 wget unzip which bash
 
-ENV JAVA_HOME=/usr/java/default/ \
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk \
     ZK_HOSTS=localhost:2181 \
     KM_VERSION=3.0.0.5 \
-    KM_REVISION=97329cc8bf462723232ee73dc6702c064b5908eb \
+#    KM_REVISION=97329cc8bf462723232ee73dc6702c064b5908eb \
     KM_CONFIGFILE="conf/application.conf"
 
 ADD start-kafka-manager.sh /kafka-manager-${KM_VERSION}/start-kafka-manager.sh

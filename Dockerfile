@@ -23,7 +23,7 @@ RUN mkdir -p /tmp && \
     ./sbt clean dist && \
     unzip  -d / ./target/universal/kafka-manager-${KM_VERSION}.zip && \
     rm -fr /tmp/* /root/.sbt /root/.ivy2 && \
-    chmod +x /kafka-manager-${KM_VERSION}/start-kafka-manager.sh &&
+    chmod +x /kafka-manager-${KM_VERSION}/start-kafka-manager.sh
 #    yum autoremove -y java-1.8.0-openjdk-devel git wget unzip which && \
 
 WORKDIR /kafka-manager-${KM_VERSION}

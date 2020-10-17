@@ -68,6 +68,9 @@ jobs:
       - name: Log into aliyun repo
         run: echo "${{ secrets.DOCKER_PASSWORD2 }}" | docker login  -u ${{ secrets.DOCKER_USERNAME2 }} registry.cn-hangzhou.aliyuncs.com --password-stdin
 
+      - name: build test
+        run: docker build -t $IMAGE_NAME .
+
       - name: Push image
         run: docker push $IMAGE_NAME
         

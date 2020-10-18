@@ -2,7 +2,7 @@
 # Provided by @chris-zen
 
 zookeeper:
-  image: confluent/zookeeper
+  image: zookeeper
   ports:
     - "2181:2181"
 
@@ -25,7 +25,7 @@ kafka:
 
 
 kafka-manager:
-  image: sheepkiller/kafka-manager:latest
+  image: scjtqs/kafka-manager:test
   ports:
     - "9000:9000"
   links:
